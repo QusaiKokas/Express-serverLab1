@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="/style.css" />
+  <title>Tasks</title>
+</head>
+<body>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/friday">Friday</a>
+    <a href="/tasks">Tasks</a>
+  </nav>
+
+  <%- include('../partials/flash') %>
+
+  <h1>Tasks</h1>
+  <p><a href="/tasks/new">Create new task</a></p>
+
+  <table>
+    <thead>
+      <tr><th>Id</th><th>Title</th><th>Done</th><th>Actions</th></tr>
+    </thead>
+    <tbody>
+      <% tasks.forEach(t => { %>
+        <tr>
+          <td><%= t.id %></td>
+          <td><a href="/tasks/<%= t.id %>"><%= t.title %></a></td>
+          <td><%= t.done ? 'Yes' : 'No' %></td>
+          <td>
+            <a href="/tasks/<%= t.id %>/edit">Edit</a>
+            <form method="POST" action="/tasks/<%= t.id %>/delete" style="display:inline;">
+              <button type="submit">Delete</button>
+            </form>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</body>
+</html>

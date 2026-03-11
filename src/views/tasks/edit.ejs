@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="/style.css" />
+  <title>Edit task</title>
+</head>
+<body>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/tasks">Tasks</a>
+  </nav>
+
+  <%- include('../partials/flash') %>
+
+  <h1>Edit task <%= task.id %></h1>
+
+  <form method="POST" action="/tasks/<%= task.id %>/update">
+    <label>Title</label><br>
+    <input name="title" value="<%= task.title %>" /><br><br>
+
+    <label>
+      <input type="checkbox" name="done" <%= task.done ? 'checked' : '' %> />
+      Done
+    </label><br><br>
+
+    <button type="submit">Save</button>
+  </form>
+</body>
+</html>

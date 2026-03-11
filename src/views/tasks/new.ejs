@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="/style.css" />
+  <title>New task</title>
+</head>
+<body>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/tasks">Tasks</a>
+  </nav>
+
+  <%- include('../partials/flash') %>
+
+  <h1>Create task</h1>
+
+  <form method="POST" action="/tasks">
+    <label>Title</label><br>
+    <input name="title" /><br><br>
+
+    <label>
+      <input type="checkbox" name="done" />
+      Done
+    </label><br><br>
+
+    <button type="submit">Create</button>
+  </form>
+</body>
+</html>
